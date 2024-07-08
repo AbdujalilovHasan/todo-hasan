@@ -73,3 +73,9 @@ button:hover {
 .btn {
   margin-left: 8px;
 }
+
+
+.myChek{
+  text-decoration: line-through;
+
+}

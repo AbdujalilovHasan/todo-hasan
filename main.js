@@ -18,7 +18,10 @@ function rendered() {
   todos.forEach((item, index) => {
     let todoItem = document.createElement("div");
     todoItem.classList.add("todo-item");
-    todoItem.innerHTML = `<p id="texts">${item}</p>
+   
+    todoItem.innerHTML = `
+    <p id="texts">${item}</p>
+    <input id = "checkbox" type="checkbox" onClick=checFunc(${index})>
     <button onclick="removeTodo(${index})" class="btn">Delete</button>
     <button onclick="editTodo(${index})" class="btn">Edit</button>`;
     
@@ -49,5 +52,16 @@ function clearTodo() {
     todos = [];
   
     rendered();
+  }
+}
+
+function checFunc(index) {
+  let checkbox = document.querySelectorAll('#checkbox')[index];
+  let text = document.querySelectorAll('#texts')[index];
+
+  if (checkbox.checked) {
+    text.classList.add('myChek');
+  } else {
+    text.classList.remove('myChek');
   }
 }
